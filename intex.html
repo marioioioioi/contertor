@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Meu Conversor Premium</title>
+    <style>
+        :root {
+            --primary: #ff0000;
+            --dark: #121212;
+            --glass: rgba(255, 255, 255, 0.1);
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #1e1e1e 0%, #000000 100%);
+            color: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        .container {
+            background: var(--glass);
+            backdrop-filter: blur(10px);
+            padding: 2rem;
+            border-radius: 20px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            text-align: center;
+            width: 90%;
+            max-width: 500px;
+            box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+        }
+
+        h1 { margin-bottom: 1.5rem; font-weight: 300; }
+        span { color: var(--primary); font-weight: bold; }
+
+        input {
+            width: 100%;
+            padding: 12px;
+            margin-bottom: 20px;
+            border-radius: 8px;
+            border: none;
+            background: rgba(255, 255, 255, 0.05);
+            color: white;
+            box-sizing: border-box;
+        }
+
+        select {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 20px;
+            background: #333;
+            color: white;
+            border-radius: 8px;
+        }
+
+        button {
+            background: var(--primary);
+            color: white;
+            border: none;
+            padding: 15px 30px;
+            border-radius: 30px;
+            cursor: pointer;
+            font-size: 1rem;
+            font-weight: bold;
+            transition: transform 0.2s;
+        }
+
+        button:hover { transform: scale(1.05); background: #cc0000; }
+        
+        .status { margin-top: 20px; font-size: 0.9rem; opacity: 0.7; }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h1>YouTube <span>MP3</span> 320</h1>
+        <p>Insira a URL do vídeo abaixo:</p>
+        
+        <input type="text" id="url" placeholder="https://www.youtube.com/watch?v=...">
+        
+        <select id="quality">
+            <option value="320">Qualidade Máxima (320 kbps)</option>
+            <option value="256">Alta Qualidade (256 kbps)</option>
+            <option value="128">Padrão (128 kbps)</option>
+        </select>
+
+        <button onclick="converter()">CONVERTER AGORA</button>
+
+        <div class="status" id="status">Pronto para começar.</div>
+    </div>
+
+    <script>
+        function converter() {
+            const url = document.getElementById('url').value;
+            const status = document.getElementById('status');
+            
+            if(url === "") {
+                alert("Por favor, cole um link!");
+                return;
+            }
+
+            status.innerHTML = "Processando áudio em 320kbps... aguarde.";
+            
+            // Simulação de processo
+            setTimeout(() => {
+                status.innerHTML = "Conversão concluída! Iniciando download no Explorer...";
+            }, 2000);
+        }
+    </script>
+</body>
+</html>
